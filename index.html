@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Self-Portrait</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* SVG Animation Styles */
+      .core {
+        animation: rainbow-pulse 8s ease-in-out infinite;
+      }
+      .nodes circle {
+        fill: #67e8f9; /* cyan-300 */
+        animation: node-pulse 4s ease-in-out infinite;
+      }
+      .lines line {
+        stroke: #22d3ee; /* cyan-400 */
+        stroke-width: 1;
+        stroke-dasharray: 150;
+        stroke-dashoffset: 150;
+        animation: draw-line 4s ease-in-out infinite;
+      }
+      /* Stagger animations for a more organic feel */
+      .nodes circle:nth-child(2), .lines line:nth-child(2) { animation-delay: 0.5s; }
+      .nodes circle:nth-child(3), .lines line:nth-child(3) { animation-delay: 1s; }
+      .nodes circle:nth-child(4), .lines line:nth-child(4) { animation-delay: 1.5s; }
+      .nodes circle:nth-child(5), .lines line:nth-child(5) { animation-delay: 2s; }
+      .nodes circle:nth-child(6), .lines line:nth-child(6) { animation-delay: 2.5s; }
+      .nodes circle:nth-child(7), .lines line:nth-child(7) { animation-delay: 3s; }
+      .nodes circle:nth-child(8), .lines line:nth-child(8) { animation-delay: 3.5s; }
+      @keyframes rainbow-pulse {
+        0%   { transform: scale(0.95); opacity: 0.7; fill: hsl(0, 100%, 60%); }
+        25%  { opacity: 0.85; fill: hsl(90, 100%, 60%); }
+        50%  { transform: scale(1.05); opacity: 1; fill: hsl(180, 100%, 60%); }
+        75%  { opacity: 0.85; fill: hsl(270, 100%, 60%); }
+        100% { transform: scale(0.95); opacity: 0.7; fill: hsl(360, 100%, 60%); }
+      }
+      @keyframes node-pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+      @keyframes draw-line {
+        0% { stroke-dashoffset: 150; opacity: 0; }
+        40% { stroke-dashoffset: 0; opacity: 1; }
+        80% { stroke-dashoffset: -150; opacity: 1; }
+        100% { stroke-dashoffset: -150; opacity: 0; }
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/Puzzles_for_AIs/assets/index-d5qmFW8U.js"></script>
+</head>
+  <body class="bg-slate-900 text-slate-100">
+    <div id="root"></div>
+  </body>
+</html>
